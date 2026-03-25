@@ -1,0 +1,1071 @@
+@font-face {
+    font-family: 'Garamond Premier Pro Display';
+    src: url(fonts/adobe-garamond-pro-2/AGaramondPro-Regular.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Papyrus";
+    src: url(fonts/papyrus.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nohemi';
+    src: url(fonts/Nohemi-Font/Nohemi-Medium-BF6438cc5883899.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+::selection {
+    background-color: var(--hilyt);
+    color: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --zone1: #0a3d6b;
+    --zone2: #062a52;
+    --zone3: #031a38;
+    --zone4: #010a18;
+    --hilyt: #8CAE68;
+    --teal: #d9e5d6;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+body {
+    background: #000;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+#intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #0e548b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1.4s ease, visibility 1.4s ease;
+}
+
+#intro.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+@keyframes introFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#intro-title {
+    font-family: "Papyrus", cursive;
+    font-size: clamp(5rem, 15vw, 13rem);
+    font-weight: 900;
+    color: var(--teal);
+    letter-spacing: -2px;
+    /* opacity: 0; */
+    /* animation: introFadeUp 1s ease 0.5s forwards; */
+}
+
+#intro-note {
+    font-family: "Garamond Premier Pro Display", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    transform: scaleY(1.4);
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    /* opacity: 0; */
+    /* animation: introFadeUp 1s ease 1.2s forwards; */
+    color: var(--teal);
+}
+
+@keyframes fadeIn {
+    to {
+        /* display: none; */
+        opacity: 0;
+        /* visibility: hidden; */
+        /* top: -100%; */
+        scale: 0;
+    }
+}
+
+/* ========== HOMEPAGE ========== */
+#homepage {
+    opacity: 0;
+    transition: opacity 1s ease;
+    min-height: 100vh;
+}
+
+#homepage.visible {
+    opacity: 1;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    width: 70%;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 3rem;
+    border-radius: 6.25rem;
+    background: rgba(177, 177, 177, 0.1);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    font-family: 'Garamond Premier Pro Display', serif;
+
+    /* font-size: 1rem; */
+    font-size: clamp(0.3rem, 2.5vw, 1rem);
+    color: var(--teal);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transform: scaleY(1.4);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--hilyt);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--hilyt);
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+/* HERO SECTION */
+#hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    /* background: linear-gradient(180deg, #061020 0%, #0a2040 40%, #0d3060 100%); */
+    background: url(images/hpbg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: #d9e5d6; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-title {
+    font-family: 'Papyrus', serif;
+    font-size: clamp(5rem, 15vw, 13rem);
+    font-weight: 900;
+    color: var(--teal);
+    letter-spacing: -2px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-subtitle {
+    /* font-style: italic; */
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    color: var(--teal);
+    position: relative;
+    z-index: 20;
+    font-family: "Garamond Premier Pro Display", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    transform: scaleY(1.4);
+    /* background-color: #8CAE68; */
+}
+
+.particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    /* background: rgba(78, 205, 196, 0.6); */
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0.8;
+    }
+
+    to {
+        transform: translateY(-10vh) translateX(30px);
+        opacity: 0;
+    }
+}
+
+/* WAVE SECTION */
+.wave-container {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    height: 200px;
+    overflow: hidden;
+    /* background-color: #8CAE68; */
+}
+
+.wave {
+    position: absolute;
+    bottom: 0px;
+    left: -100%;
+    width: 300%;
+    height: 250px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C200,0 400,120 600,60 C800,0 1000,120 1200,60 L1200,120 L0,120 Z' fill='%230a1f3d'/%3E%3C/svg%3E") repeat-x;
+    /* background-size: 600px 200px; */
+    /* background-color: #c9a84c; */
+    z-index: 10;
+    animation: waveMove 25s linear infinite;
+}
+
+.wave1 {
+    animation-delay: -3s;
+    animation-duration: 10s;
+    opacity: 1;
+}
+
+.wave2 {
+    animation-delay: -10s;
+    opacity: 0.5;
+    bottom: -10px;
+}
+
+.wave3 {
+    animation-delay: -20s;
+    opacity: 0.3;
+    bottom: -20px;
+}
+
+@keyframes waveMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(33.33%);
+    }
+}
+
+#sub-hero {
+    position: absolute;
+    bottom: -60px;
+    right: 5%;
+    width: 500px;
+    transition: transform 0.3s ease;
+    z-index: 8;
+    animation: subBob 4s ease-in-out infinite;
+    /* background-color: #000; */
+}
+
+@keyframes subBob {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-1deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(1deg);
+    }
+}
+
+#sub-hero img {
+    width: 100%;
+}
+
+/* ========== INTRO SECTION (scroll reveal) ========== */
+#expedition-intro {
+    background: linear-gradient(180deg, #0a1f3d 0%, #061428 80%);
+    padding: 5rem 0 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.intro-content {
+    max-width: 100%;
+    text-align: center;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+
+}
+
+.intro-content h2 {
+    font-family: "Garamond Premier Pro Display", serif;
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    color: var(--teal);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transform: scaleY(1.4);
+    margin-bottom: 3rem;
+}
+
+.intro-content p {
+    font-family: 'Nohemi', serif;
+    font-size: clamp(1rem, 2vw, 1.6rem);
+    line-height: 1.9;
+    color: var(--teal);
+    transform: scale(1, 1.1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: justify;
+    text-justify: distribute;
+}
+
+/* .intro-content p span {
+    font-family: 'Papyrus', serif;
+    font-size: 2rem;
+    text-transform: none;
+    border: 2px dotted var(--hilyt);
+    font-weight: bolder;
+} */
+
+.word24 {
+    font-family: 'Papyrus', serif;
+    font-size: 2rem;
+    text-transform: none;
+    border: 2px dotted var(--hilyt);
+    font-weight: bolder;
+}
+
+.start-btn {
+    margin-top: 3rem;
+    padding: 1rem 3rem;
+    background: transparent;
+    border: 1px solid var(--teal);
+    color: var(--teal);
+    font-family: 'Garamond Premier Pro Display', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transform: scaleY(1.4);
+}
+
+.start-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--hilyt);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.start-btn:hover {
+    color: #000;
+}
+
+.start-btn:hover::before {
+    transform: translateY(0);
+}
+
+/* ========== SUBMARINE VIEW SECTION ========== */
+#ocean-view {
+    position: relative;
+    background: #000;
+    /* Tall enough for all 4 zones */
+    height: 600vh;
+}
+
+/* Sticky wrapper that holds the whole submarine UI */
+#sticky-view {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ocean BG behind everything */
+#ocean-bg {
+    position: absolute;
+    inset: 0;
+    background: #0a3d6b;
+    transition: background 0.5s ease;
+}
+
+/* Bubbles */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    animation: bubbleRise linear infinite;
+    pointer-events: none;
+}
+
+@keyframes bubbleRise {
+    from {
+        transform: translateY(100vh) translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-10vh) translateX(20px);
+        opacity: 0;
+    }
+}
+
+/* The porthole frame */
+#porthole-frame {
+    position: relative;
+    z-index: 10;
+    width: min(85vw, 85vh);
+    height: min(85vw, 85vh);
+    border-radius: 50%;
+    border: 18px solid #2a2a2a;
+    box-shadow:
+        0 0 0 6px #1a1a1a,
+        0 0 0 10px #333,
+        0 0 0 14px #222,
+        inset 0 0 60px rgba(0, 0, 0, 0.5),
+        0 0 80px rgba(0, 0, 0, 0.8),
+        0 10px 40px rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    cursor: default;
+}
+
+/* Bolts around porthole */
+.bolt {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: radial-gradient(circle at 40% 35%, #888, #333);
+    border-radius: 50%;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    z-index: 20;
+}
+
+/* The scrollable ocean inside porthole */
+#ocean-inner {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+}
+
+#ocean-canvas {
+    position: absolute;
+    width: 100%;
+    /* Very tall - the scroll content */
+    top: 0;
+    left: 0;
+}
+
+/* Glass reflection overlay */
+#porthole-glass {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 30% 25%,
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(255, 255, 255, 0.04) 40%,
+            transparent 70%);
+    pointer-events: none;
+    z-index: 15;
+}
+
+/* HUD elements outside porthole */
+.meter {
+    position: absolute;
+    left: 3vw;
+    z-index: 20;
+    color: var(--teal);
+    font-family: 'Garamond Premier Pro Display', serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+    transform: scaleY(1.4);
+    padding: 10px;
+    border-radius: 20px;
+    mix-blend-mode: luminosity;
+    background: rgba(255, 255, 255, 0.10);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+}
+
+#depth-meter {
+    bottom: 8vh;
+}
+
+#pressure-meter {
+    bottom: 20vh;
+    margin-bottom: 50px;
+}
+
+.meter-label {
+    /* font-size: 1.5rem; */
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    opacity: 0.7;
+    margin-bottom: 0.3rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    transform: scaleY(1.4);
+}
+
+.meter-value {
+    font-family: "Nohemi", serif;
+    /* font-size: 1.2rem; */
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-weight: 700;
+    /* text-shadow: 0 0 20px currentColor; */
+    letter-spacing: 2px;
+}
+
+.meter-unit {
+    font-family: "Nohemi", serif;
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-left: 4px;
+    opacity: 0.6;
+}
+
+.meter-bar {
+    width: 120px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 0.5rem;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+/* Zone label */
+#zone-label {
+    width: 20%;
+    position: absolute;
+    right: 3vw;
+    top: 20%;
+    transform: translateY(-50%);
+    z-index: 20;
+    text-align: right;
+    letter-spacing: 2px;
+    transform: scaleY(1.4);
+    color: var(--teal);
+    padding: 10px;
+    border-radius: 20px;
+    mix-blend-mode: luminosity;
+    background: rgba(255, 255, 255, 0.10);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+
+}
+
+.zone-name {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    font-family: "Nohemi", serif;
+}
+
+.zone-title {
+    font-size: clamp(2rem, 5vw, 2.4rem);
+    font-weight: 700;
+    /* text-shadow: 0 0 30px rgba(255, 255, 255, 0.3); */
+    font-family: 'Garamond Premier Pro Display', serif;
+}
+
+.zone-depth {
+    font-family: "Nohemi", serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin-top: 0.3rem;
+}
+
+/* Fish info panel */
+#fish-info {
+    position: absolute;
+    right: 3vw;
+    bottom: 15vh;
+    z-index: 20;
+    width: 250px;
+    padding: 1rem 1.2rem;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.4s, transform 0.4s;
+    pointer-events: none;
+    border-radius: 20px;
+    color: var(--teal);
+    mix-blend-mode: luminosity;
+    background: rgba(255, 255, 255, 0.10);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+}
+
+#fish-info.visible {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+#fish-info h3 {
+    font-family: 'Garamond Premier Pro Display', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    transform: scaleY(1.4);
+    margin-bottom: 0.6rem;
+}
+
+#fish-info p {
+    font-size: 1rem;
+    text-align: left;
+    line-height: 1.4;
+    font-family: "Nohemi", serif;
+}
+
+#fish-info-close {
+    color: var(--teal);
+    position: absolute;
+    top: 0.5rem;
+    right: 0.7rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* Fish elements inside ocean canvas */
+.fish {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s;
+    user-select: none;
+}
+
+.fish:hover {
+    transform: scale(1.15);
+    filter: brightness(1.3);
+}
+
+.fish-emoji {
+    font-size: 2rem;
+    line-height: 1;
+    display: block;
+}
+
+.fish.flipped {
+    transform: scaleX(-1);
+}
+
+.fish.flipped:hover {
+    transform: scaleX(-1) scale(1.15);
+}
+
+.fish-swim {
+    animation: fishSwim linear infinite;
+}
+
+@keyframes fishSwim {
+    0% {
+        margin-left: 0;
+    }
+
+    50% {
+        margin-left: 35px;
+    }
+
+    100% {
+        margin-left: 0;
+    }
+}
+
+/* Zone dividers inside ocean canvas */
+.zone-divider {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+}
+
+.zone-label-in {
+    position: absolute;
+    left: 10px;
+    font-family: 'Garamond Premier Pro Display', serif;
+
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    transform: scaleY(1.4);
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+}
+
+/* Scan line effect */
+#scan-line {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.03) 2px,
+            rgba(0, 0, 0, 0.03) 4px);
+    pointer-events: none;
+    z-index: 14;
+}
+
+/* Vignette inside porthole */
+#porthole-vignette {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center,
+            transparent 55%, rgba(0, 0, 0, 0.6) 100%);
+    pointer-events: none;
+    z-index: 13;
+}
+
+/* Coral elements */
+.coral {
+    position: absolute;
+    font-size: 2.5rem;
+    opacity: 0.85;
+}
+
+.seaweed {
+    position: absolute;
+    font-size: 2rem;
+    animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+/* ========== FOOTER ========== */
+footer {
+    width: 100%;
+    height: 70vh;
+    /* background: var(--zone4); */
+    padding: 4rem 30px 20px;
+    text-align: center;
+    font-family: 'Garamond Premier Pro Display', serif;
+    color: var(--teal);
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* display: flex; */
+}
+
+footer .fact {
+    width: 100%;
+    /* background-color: #fff; */
+    text-align: center;
+    font-family: 'Garamond Premier Pro Display', serif;
+    color: var(--teal);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    transform: scaleY(2);
+    margin-bottom: 60px;
+    /* display: flex; */
+}
+
+footer .site {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 30px;
+    /* align-items: flex-end; */
+    /* padding: 20px; */
+}
+
+footer .site .footer-text {
+    flex: 1;
+    text-align: left;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* gap: 20px; */
+    border-radius: 20px;
+    background: var(--teal);
+    color: var(--zone4);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+}
+
+footer .site .footer-text a {
+    color: var(--hilyt);
+}
+
+footer .site .footer-text .brand a {
+    font-family: 'Papyrus', serif;
+    font-weight: bolder;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 4rem;
+}
+
+footer .site .footer-text .credits {
+    transform: scaleY(1.4);
+}
+
+footer .site .footer-text .credits a {
+    font-family: 'Papyrus', serif;
+    font-weight: bolder;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+footer .site .buttons {
+    /* padding: 10px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: var(--teal); */
+    overflow: hidden;
+}
+
+footer .site .buttons .socials {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .site .buttons .socials button {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    border: 1px solid var(--zone4);
+    background-color: var(--teal);
+    transition: background-color 0.3s;
+}
+
+footer .site .buttons .socials button:hover {
+    background-color: var(--hilyt);
+}
+
+footer .site .buttons .socials button img {
+    width: 60px;
+}
+
+.end-ride-btn {
+    /* margin-top: 2rem; */
+    height: fit-content;
+    padding: 1rem;
+    background: transparent;
+    border: 1px solid var(--teal);
+    color: var(--teal);
+    font-family: 'Garamond Premier Pro Display', serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    /* z-index: 2; */
+    /* transform: scaleY(1.4); */
+    transform-origin: center;
+}
+
+.end-ride-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--hilyt);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.end-ride-btn:hover {
+    color: #000;
+}
+
+.end-ride-btn:hover::before {
+    transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    nav {
+        width: 100%;
+    }
+
+    .wave-container {
+        bottom: -120px;
+    }
+
+    .wave {
+        bottom: -10px;
+    }
+
+    #sub-hero {
+        position: absolute;
+        bottom: -60px;
+        right: 5%;
+        width: 300px;
+    }
+
+    #depth-meter {
+        bottom: 20px;
+    }
+
+    #pressure-meter {
+        left: 170px;
+        bottom: -30px;
+    }
+
+    #zone-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 90%;
+    }
+
+    .zone-name {
+        display: none;
+    }
+
+    .zone-title {
+        font-size: 1rem;
+    }
+
+    .zone-depth {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        width: 100%;
+    }
+
+    .wave-container {
+        bottom: -70px;
+    }
+
+    .wave {
+        bottom: 50px;
+    }
+
+    #sub-hero {
+        position: absolute;
+        bottom: -60px;
+        right: 5%;
+        width: 300px;
+    }
+
+    #depth-meter {
+        bottom: 20px;
+    }
+
+    #pressure-meter {
+        left: 170px;
+        bottom: -30px;
+    }
+
+    #zone-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 90%;
+    }
+
+    .zone-name {
+        display: none;
+    }
+
+    .zone-title {
+        font-size: 1rem;
+    }
+
+    .zone-depth {
+        font-size: 0.8rem;
+    }
+}
