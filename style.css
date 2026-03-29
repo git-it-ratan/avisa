@@ -54,6 +54,32 @@ body.no-scroll {
     overflow: hidden;
 }
 
+.loader-wrapper {
+    position: fixed;
+    inset: 0;
+    background: #0e548b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.loader-wrapper.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-wrapper .loader {
+    width: 100px;
+    animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 #intro {
     position: fixed;
     inset: 0;

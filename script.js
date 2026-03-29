@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText)
 });
 
+//creating loader animation and transition to intro
+window.addEventListener("load", () => {
+    const loaderWrapper = document.querySelector('.loader-wrapper');
+    loaderWrapper.classList.add('fade-out');
+})
+
 document.fonts.ready.then(() => {
     let note = SplitText.create("#intro-note", {
         type: "words",
