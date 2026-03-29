@@ -113,7 +113,6 @@ body.no-scroll {
     }
 }
 
-/* ========== HOMEPAGE ========== */
 #homepage {
     opacity: 0;
     transition: opacity 1s ease;
@@ -124,7 +123,6 @@ body.no-scroll {
     opacity: 1;
 }
 
-/* NAVBAR */
 nav {
     position: fixed;
     width: 70%;
@@ -183,7 +181,6 @@ nav {
     transform: scaleX(1);
 }
 
-/* HERO SECTION */
 #hero {
     height: 100vh;
     position: relative;
@@ -252,7 +249,6 @@ nav {
     }
 }
 
-/* WAVE SECTION */
 .wave-container {
     position: absolute;
     bottom: 0px;
@@ -331,7 +327,6 @@ nav {
     width: 100%;
 }
 
-/* ========== INTRO SECTION (scroll reveal) ========== */
 #expedition-intro {
     background: linear-gradient(180deg, #0a1f3d 0%, #061428 80%);
     padding: 5rem 0 6rem;
@@ -368,19 +363,11 @@ nav {
     line-height: 1.9;
     color: var(--teal);
     transform: scale(1, 1.1);
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     letter-spacing: 2px;
     text-align: justify;
     text-justify: distribute;
 }
-
-/* .intro-content p span {
-    font-family: 'Papyrus', serif;
-    font-size: 2rem;
-    text-transform: none;
-    border: 2px dotted var(--hilyt);
-    font-weight: bolder;
-} */
 
 .word24 {
     font-family: 'Papyrus', serif;
@@ -426,7 +413,6 @@ nav {
     transform: translateY(0);
 }
 
-/* ========== SUBMARINE VIEW SECTION ========== */
 #ocean-view {
     position: relative;
     background: #000;
@@ -434,7 +420,6 @@ nav {
     height: 600vh;
 }
 
-/* Sticky wrapper that holds the whole submarine UI */
 #sticky-view {
     position: sticky;
     top: 0;
@@ -445,7 +430,6 @@ nav {
     justify-content: center;
 }
 
-/* Ocean BG behind everything */
 #ocean-bg {
     position: absolute;
     inset: 0;
@@ -453,7 +437,6 @@ nav {
     transition: background 0.5s ease;
 }
 
-/* Bubbles */
 .bubble {
     position: absolute;
     border-radius: 50%;
@@ -475,7 +458,6 @@ nav {
     }
 }
 
-/* The porthole frame */
 #porthole-frame {
     position: relative;
     z-index: 10;
@@ -494,7 +476,6 @@ nav {
     cursor: default;
 }
 
-/* Bolts around porthole */
 .bolt {
     position: absolute;
     width: 14px;
@@ -505,7 +486,6 @@ nav {
     z-index: 20;
 }
 
-/* The scrollable ocean inside porthole */
 #ocean-inner {
     width: 100%;
     height: 100%;
@@ -517,12 +497,10 @@ nav {
 #ocean-canvas {
     position: absolute;
     width: 100%;
-    /* Very tall - the scroll content */
     top: 0;
     left: 0;
 }
 
-/* Glass reflection overlay */
 #porthole-glass {
     position: absolute;
     inset: 0;
@@ -535,7 +513,6 @@ nav {
     z-index: 15;
 }
 
-/* HUD elements outside porthole */
 .meter {
     position: absolute;
     left: 3vw;
@@ -607,7 +584,6 @@ nav {
     width: 0%;
 }
 
-/* Zone label */
 #zone-label {
     width: 20%;
     position: absolute;
@@ -648,7 +624,6 @@ nav {
     margin-top: 0.3rem;
 }
 
-/* Fish info panel */
 #fish-info {
     position: absolute;
     right: 3vw;
@@ -702,7 +677,6 @@ nav {
     line-height: 1;
 }
 
-/* Fish elements inside ocean canvas */
 .fish {
     position: absolute;
     cursor: pointer;
@@ -747,7 +721,6 @@ nav {
     }
 }
 
-/* Zone dividers inside ocean canvas */
 .zone-divider {
     position: absolute;
     left: 0;
@@ -768,7 +741,6 @@ nav {
     color: rgba(255, 255, 255, 0.25);
 }
 
-/* Scan line effect */
 #scan-line {
     position: absolute;
     inset: 0;
@@ -782,7 +754,6 @@ nav {
     z-index: 14;
 }
 
-/* Vignette inside porthole */
 #porthole-vignette {
     position: absolute;
     inset: 0;
@@ -793,7 +764,6 @@ nav {
     z-index: 13;
 }
 
-/* Coral elements */
 .coral {
     position: absolute;
     font-size: 2.5rem;
@@ -818,7 +788,6 @@ nav {
     }
 }
 
-/* ========== FOOTER ========== */
 footer {
     width: 100%;
     height: 70vh;
